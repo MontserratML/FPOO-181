@@ -1,0 +1,8 @@
+class personaje:
+#creamos al constructor
+def- init_(self,esp,nom,alt):
+    self.especie= esp
+    self.nombre= nom
+    self.altura= alt
+
+
