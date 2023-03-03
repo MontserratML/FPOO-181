@@ -14,3 +14,30 @@ def agregarBoton():
     botonVerde.config(text="+",bg="green",fg="while")
     botonNuevo= Button(seccion3,text="BotonNuevo")
     botonNuevo.pack()
+
+#1.Creamos un objeto ventana
+ventana =1k()
+ventana.title("practica 11:3 ")
+ventana.geometry("600x400")
+
+#2. definimos secciones de la ventana
+seccion1 = frame(ventana, bg="#00bfff")
+seccion1.pack(expand=True, fill="both")
+seccion2 = frame(ventana, bg="#ffffff")
+seccion2.pack(expand=True, fill="both")
+seccion3 = frame(ventana, bg="#00394d")
+seccion3.pack(expand=True, fill="both")
+
+#3. Creamos los botones 
+botonAzul = Button(seccion1, text="boton azul cielo", fg="#00bbff", bg="white",
+command=mostrarMensaje)
+botonAzul.place(x=60, y=60)
+botonBlanco= Button(seccion2, text="boton blanco", fg="white", bg="gray")
+botonBlanco.grid(row=0, column=0)
+botonAzulF = Button(seccion2, text="boton azul fuerte", fg="blue", bg="white")
+botonAzulF.grid(row=1, column=1)
+botonVerde = Button(seccion3, text="boton verde", fg="green", bg="white",
+command=agregarBoton)
+botonVerde.pack()
+
+ventana.mainloop()
