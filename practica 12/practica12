@@ -1,0 +1,125 @@
+from tkinter import Tk,Button, Entry, Label, ttk
+from tkinter import StringVar,END,HORIZONTAL,Frame,Toplevel
+import os
+
+#crear ventana inicio
+def ventana_inicio():
+    global ventana_principal
+    pestañas_color="Grey"
+    ventana_principal=Tk()
+    ventana_principal.geometry("300x250")
+    ventana_principal.title("Login")
+    Label(text="opcion", bg="LightGreen", width="300", height="2", font=("calibri, 13")).pack()
+    Label(text="").pack()
+    Button(text="acceder", bg="LightGreen", width="30", height="2", bg=pestañas_color, command=login).pack()
+    Label(text="").pack()
+    Button(text="registrarse", bg="LightGreen", width="30", height="2", bg=pestañas_color, command=login).pack()
+    Label(text="").pack()
+    ventana_principal.mainloop()
+
+
+#crear registro
+def registro():
+    global ventana_registro
+    ventana_registro = Toplevel(ventana_principal) 
+    ventana_registro.title("registro")
+    ventana_registro.geometry("300x250")
+
+    global nombre_usuario
+    global clave
+    global entrada_nombre
+    global entrada_clave
+    nombre_usuario = StringVar()
+    clave = StringVar()
+
+    Label(ventana_registro, text="introduzca datos", bg="LightGreen").pack()
+    Label(ventana_registro, text="").pack()
+    etiqueta_nombre = Label(ventana_registro, text="Nombre de Usuario * ")
+    etiqueta_nombre.pack()
+    entrada_nombre = Entry(ventana_registro, textvariable=nombre_usuario)
+    entrada_nombre.pack()
+    etiqueta_clave = Label(ventana_registro, text="Contraseña * ")
+    etiqueta_clave.pack()
+    entrada_clave = Entry(ventana_registro, textvariable=clave, show='*')
+    entrada_clave.pack()
+    Button(ventana_registro, text="registrarse", width=10, height=1, bg="LightGreen", command= registro_usuario).pack()
+
+
+#Registro usuario
+
+def registro_usuario():
+    usuario_info = nombre_usuario.get()
+    clave_info = clave.get()
+
+    file = open(usuario_info, "w")
+    file.write(usuario_info + "\n")
+    file.write(clave_info)
+    file.close
+
+    entrada_nombre.delete(0, END)
+    entrada_clave.delete(0, END)
+    
+    Label(ventana_registro, text="registro completo", fg="green", font="calibri, 11").pack()
+
+#crear login
+
+def login():
+    global ventana_login
+    ventana_login = Toplevel(ventana_principal)
+    ventana_login.title("acceso a la cuenta")
+    ventana_login.geometry("300x250")
+    Label(ventana_login, text="introduce usuario y contraseña").pack()
+    Label(ventana_login, text="").pack()
+
+    global verifica_usuario
+    global verifica_clave
+
+    verifica_usuario = StringVar()
+    verifica_clave =StringVar()
+
+    global entrada_login_usuario
+    global entrada_login_clave
+
+    Label(ventana_login, text="Nombre usuario * ").pack()
+    entrada_login_usuario = Entry(ventana_login, textvariable=verifica_usuario)
+    entrada_login_usuario.pack()
+    Label(ventana_login, text="").pack()
+    Label(ventana_login, text="Contraseña * ").pack()
+    entrada_login_clave = Entry(ventana_login, textvariable=verifica_clave, show='*')
+    entrada_login_clave.pack()
+    Label(ventana_login, text="").pack()
+    Button(ventana_login, text="acceder", width=10, height=1, command= verificar_login).pack()
+    
+#verificar login
+def verificar_login():   
+    usuario1 = verifica_usuario.get()
+    clave1 = verifica_clave.get()
+    entrada_nombre.delete(0, END)
+    entrada_clave.delete(0, END)
+
+    lista_archivos = os.listdir()
+    if usuario1 in lista_archivos:
+        archivo1 = open(usuario1, "r")
+        verifica = archivo1.read().splitlines
+        if clave1 in verifica:
+            exito_login()
+        else:no_UsuarioniContraseña()
+#mensaje exitio
+
+def exito_login():
+    global ventana_exito
+    ventana_exito = Toplevel(ventana_login)
+    ventana_exito.title("exito")
+    ventana_exito.geometry("150x100")
+    Label(ventana_exito, text="Bienvenido").pack()
+    Button(ventana_exito, text="ok").pack()
+
+def no_UsuarioniContraseña():
+    global ventana_no_UsuarioniContraseña
+    ventana_no_UsuarioniContraseña =Toplevel(ventana_login)
+    ventana_no_UsuarioniContraseña.title("error")
+    ventana_no_UsuarioniContraseña.geometry("150x100")
+    Label(ventana_exito, text="datos incorrectos").pack()
+    Button(ventana_exito, text="ok").pack()
+
+        
