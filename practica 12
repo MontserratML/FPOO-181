@@ -121,5 +121,3 @@ def no_UsuarioniContraseña():
     ventana_no_UsuarioniContraseña.geometry("150x100")
     Label(ventana_exito, text="datos incorrectos").pack()
     Button(ventana_exito, text="ok").pack()
-
-        
