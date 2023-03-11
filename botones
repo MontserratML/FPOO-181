@@ -16,7 +16,7 @@ def agregarBoton():
     botonNuevo.pack()
 
 #1.Creamos un objeto ventana
-ventana =1k()
+ventana =Tk()
 ventana.title("practica 11:3 ")
 ventana.geometry("600x400")
 

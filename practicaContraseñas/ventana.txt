@@ -19,5 +19,3 @@ txtContra= Entry(seccion1,textvariable=var1,takefocus=True).pack()
 
 botonGen= Button(seccion1, text="Generar", bg="green")
 
-#Main
-ventana.mainloop()
