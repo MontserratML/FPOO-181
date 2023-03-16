@@ -32,3 +32,8 @@ main_window = tk.Tk()
 app = Application(main_window)
 app.mainloop()
 
+nombre_variable= int(input("Ingresa un entero"))
+
+nombre = input("Dígame su nombre: ")
+apellido = input(f"Dígame su apellido, {nombre}: ")
+print(f"Me alegro de conocerle, {nombre} {apellido}.")
