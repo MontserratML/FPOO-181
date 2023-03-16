@@ -2,8 +2,7 @@ from tkinter import Tk,Frame,Button,messagebox
 
 #4.
 def mostrarMensaje():
-    messagebox.showinfo("Aviso", "Este mensaje es para informar algo")
-    messagebox.showerror("Error:", "Todo fallo con exito")
+    messagebox.showinfo("tu matrícula es:", "La siguiente")
     print(messagebox.askokcancel("Pregunta:", "El o Ella jugó con tu corazón"))
     print(messagebox.askquestion("Pregunta:", "El o Ella jugó con tu corazón"))
     print(messagebox.askyesno("Pregunta:", "El o Ella jugó con tu corazón"))
@@ -21,11 +20,11 @@ ventana.title("practica 11:3 ")
 ventana.geometry("600x400")
 
 #2. definimos secciones de la ventana
-seccion1 = frame(ventana, bg="#00bfff")
+seccion1 = Frame(ventana, bg="#00bfff")
 seccion1.pack(expand=True, fill="both")
-seccion2 = frame(ventana, bg="#ffffff")
+seccion2 = Frame(ventana, bg="#ffffff")
 seccion2.pack(expand=True, fill="both")
-seccion3 = frame(ventana, bg="#00394d")
+seccion3 = Frame(ventana, bg="#00394d")
 seccion3.pack(expand=True, fill="both")
 
 #3. Creamos los botones 

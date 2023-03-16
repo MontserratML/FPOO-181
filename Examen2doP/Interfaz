@@ -2,7 +2,7 @@ from tkinter import *
 from tkinter import messagebox
  
  
-class Pycalc(Frame):
+class interfaz(Frame):
  
     def __init__(self, master, *args, **kwargs):
         Frame.__init__(self, master, *args, **kwargs)

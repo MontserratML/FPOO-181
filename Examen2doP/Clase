@@ -1,9 +1,13 @@
-class matricula:
+from tkinter import Frame, messagebox
 
 
-nombre = input("Dígame su nombre: ")
-apellido = input(f"Dígame su apellido, {nombre}: ")
-print(f"Me alegro de conocerle, {nombre} {apellido}.")
+
+def _init_(self):
+    self._nombre="juan"
+    self._apellidos= "" 
+
+def mostrarMensaje():
+    messagebox.showinfo("Tu matrícula es: ")
 
 
 
