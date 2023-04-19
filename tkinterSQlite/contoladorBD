@@ -1,0 +1,45 @@
+from tkinter import messagebox
+import sqlite3
+from typing import self 
+import bcrypt
+
+class contoladorBD:
+
+    def _init_(self):
+        pass
+
+#Metodo para crear conexiones
+    def conexionBD(self):
+
+        try:
+            conexion= sqlite3.connect("")
+            print("Conectado a la BD")
+            return conexion
+        except sqlite3.OperationalError:
+         print("No se pudo conectar ")
+#Metodos para guardar usuarios
+def guardarUusario(sel,nom,cor,con):
+   
+   #1. usamos una conexion
+   conx= sel.conexionBD()
+
+   #2. validar parametros vacios
+   if (nom="" or cor== ""):
+      messagebox.showwarning("Formulario incompleto")
+   else:
+      
+      #3. preparamos cursor, datos, querySQL
+      cursor= conx.cursor()
+      datos=(nom,cor,con)
+      qrInsert= "insert into TBRegistrados(nombre,correo,contra) values(?,?,?)"
+
+      #4. ejecutar insert y cerramos conexion
+      cursor.execute(qrInsert,datos)
+      conx.commit()
+      conx.close
+      messagebox.showinfo("exito","usuario guardado")
+
+      
+
+
+        
