@@ -1,6 +1,13 @@
 from tkinter import *
 from tkinter import ttk 
 import tkinter as tk
+from controlador import
+
+controlador= controlador()
+
+def ejecutaInsert():
+    controlador.guardarCuenta(varNom.get(),varSal.get(),varNoCuenta.get())
+    
 
 ventana=tk()
 ventana.title("CRUD Banco")

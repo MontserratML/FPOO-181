@@ -12,13 +12,13 @@ class contoladorBD:
     def conexionBD(self):
 
         try:
-            conexion= sqlite3.connect("")
+            conexion= sqlite3.connect("C:\Users\acerlap\Documents\GitHub\FPOO-181\EXAMEN3\BDBanco.db")
             print("Conectado a la BD")
             return conexion
         except sqlite3.OperationalError:
          print("No se pudo conectar ")
 #Metodos para guardar usuarios
-def guardarUusario(sel,nom,cor,con):
+def guardarUusario(Sal,Nom,NoCuen):
    
    #1. usamos una conexion
    conx= sel.conexionBD()
@@ -30,7 +30,7 @@ def guardarUusario(sel,nom,cor,con):
       
       #3. preparamos cursor, datos, querySQL
       cursor= conx.cursor()
-      datos=(nom,cor,con)
+      datos=(Sal,Nom,NoCuen)
       qrInsert= "insert into TBCuentas(cuenta,noCuenta,Saldo) values(?,?,?)"
 
       #4. ejecutar insert y cerramos conexion
